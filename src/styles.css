@@ -1,0 +1,119 @@
+@import "tailwindcss";
+@import "@fontsource/plus-jakarta-sans/400.css";
+@import "@fontsource/plus-jakarta-sans/500.css";
+@import "@fontsource/plus-jakarta-sans/600.css";
+@import "@fontsource/plus-jakarta-sans/700.css";
+@import "@fontsource/source-serif-4/400.css";
+@import "@fontsource/source-serif-4/600.css";
+@import "@fontsource/source-serif-4/700.css";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --bg: #f7f7f4;
+  --fg: #101827;
+  --card: #ffffff;
+  --muted: #5c6772;
+  --line: #e4e1d8;
+  --navy: #101827;
+  --slate: #1e293b;
+  --gold: #d4af65;
+  --gold-ink: #7a5b24;
+  --emerald: #16876b;
+  --emerald-ink: #0e5c48;
+  --paper: #f7f7f4;
+  --danger: #8f3d3d;
+  --sidebar: #101827;
+  --sidebar-fg: #f7f7f4;
+  --tint: #f3f1ea;
+  color-scheme: light;
+}
+
+.dark {
+  --bg: #0e1522;
+  --fg: #f7f7f4;
+  --card: #1e293b;
+  --muted: #b4bdc8;
+  --line: #334155;
+  --gold-ink: #e6cb8d;
+  --emerald-ink: #8fd4c2;
+  --paper: #0e1522;
+  --danger: #f0b4b4;
+  --sidebar: #0b1220;
+  --tint: #162033;
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-fg: var(--fg);
+  --color-card: var(--card);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-navy: var(--navy);
+  --color-slate: var(--slate);
+  --color-gold: var(--gold);
+  --color-gold-ink: var(--gold-ink);
+  --color-emerald: var(--emerald);
+  --color-emerald-ink: var(--emerald-ink);
+  --color-paper: var(--paper);
+  --color-danger: var(--danger);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-fg: var(--sidebar-fg);
+  --color-tint: var(--tint);
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: var(--font-sans);
+  }
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+  :focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 2px;
+  }
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+  p {
+    text-wrap: pretty;
+  }
+}
+
+html[data-font="lg"] {
+  font-size: 17px;
+}
+html[data-font="xl"] {
+  font-size: 19px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+html.reduce-motion *,
+html.reduce-motion *::before,
+html.reduce-motion *::after {
+  animation-duration: 0.01ms !important;
+  transition-duration: 0.01ms !important;
+}
